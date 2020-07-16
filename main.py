@@ -31,7 +31,7 @@ def runFile(filepath):
         outputbox.insert('end', '_'*47+'\n')
         root.update()
 
-        process = subprocess.Popen(str(os.path.split(filepath)[1]), cwd=os.path.split(filepath)[0], stdin=subprocess.DEVNULL, shell=True, stdout=subprocess.PIPE)
+        process = subprocess.Popen(str(os.path.split(filepath)[1]), cwd=os.path.split(filepath)[0], stdin=subprocess.DEVNULL, stderr=subprocess.STDOUT, shell=True, stdout=subprocess.PIPE)
         for line in process.stdout:
             outputbox.insert('end', line)
             root.update()
